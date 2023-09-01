@@ -188,3 +188,36 @@ class BankManagementSystem:
 if __name__ == "__main__":
     bank_system = BankManagementSystem()
     bank_system.main_menu()
+class Book:
+    def __init__(self, title, author, year):
+        self.title = title
+        self.author = author
+        self.year = year
+
+    def get_info(self):
+        return f"Title: {self.title}\nAuthor: {self.author}\nYear: {self.year}"
+
+
+class EBook(Book):
+    def __init__(self, title, author, year, format_type):
+        super().__init__(title, author, year)
+        self.format_type = format_type
+
+    def get_info(self):
+        book_info = super().get_info()
+        return f"{book_info}\nFormat: {self.format_type}"
+
+    def is_available_online(self):
+        return True
+
+
+book1 = Book("Angels and demons", "Dan brown", 1995)
+ebook1 = EBook("40 rules of love", "Elif", 2015, "PDF")
+
+print("Book 1:")
+print(book1.get_info())
+
+print("\nEBook 1:")
+print(ebook1.get_info())
+print("Available online:", ebook1.is_available_online())
+
